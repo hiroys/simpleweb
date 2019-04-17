@@ -1,0 +1,10 @@
+
+<nav>
+    <p id="top_link"><a href="/">{{ site_info.site_name }}</a></p>
+    <ul id="gnav">
+    {% for item in cate_info %}
+        <li><a href="/{{ item.category }}">
+            {{ item.title }}</a></li>
+    {% endfor %}
+    </ul>
+</nav>

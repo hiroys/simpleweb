@@ -1,0 +1,266 @@
+/* user css */
+
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Yu Gothic","游ゴシック", YuGothic;
+    font-weight: 500;
+    font-size: 120%;
+}
+header {
+    width: 100%;
+}
+
+div#contents {
+    width: 100%;
+    margin: 0 auto;
+    background-color: #fff;
+}
+
+footer {
+    width: 90%;
+}
+
+/* navi */
+@media screen and (max-width: 900px) {
+    nav ul#gnav {
+        display: none;
+    }    
+    div.slicknav_menu {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: green !important;
+    }
+    ul.slicknav {
+        background-color: #444 !important;
+    }
+    ul.slicknav li {
+        font-size: 120% !important;
+    }
+    div#page_navi {
+        width: 100%;
+        padding: 0;
+        margin-bottom: 20px;
+    }
+    div#page_navi ul {
+        margin: 0;
+        padding: 0;
+    }
+    div#page_navi li {
+        display: block;
+        border-top: 1px solid #000;
+        border-bottom: 1px solid #000;
+        margin: 0 0;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 5%;
+    }
+}
+
+nav p#top_link {
+    margin: 0;
+    padding: 15px 5%;
+    background-color: green;
+}
+nav p#top_link a:link, nav p#top_link a:visited, nav p#top_link:hover {
+    font-weight: 800;
+    color: #fff;
+    text-decoration: none;
+}
+div#page_navi a:link, div#page_navi a:visited, div#page_navi:hover {
+    font-weight: 800;
+    color: #000;
+    text-decoration: none;
+}
+
+@media screen and (min-width: 901px) {
+    div.slicknav_menu {
+        display: none;
+    }
+    ul#gnav {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 0;
+    }
+    ul#gnav li {
+        display: inline-block;
+        margin: auto 10px;
+        margin-top: 5px;
+        padding-top: 0;
+        font-size: 90%;
+    }
+    ul#gnav li a:link, ul#gnav li a:visited, ul#gnav li a:hover {
+        font-weight: 800;
+        color: #fff;
+        text-decoration: none;
+    }
+    div#page_navi {
+        display: block;
+    }
+    div#page_navi ul {
+        text-align: center;
+        background-color: #eee;
+        padding: 0;
+        margin-top: 0;
+    }
+    div#page_navi li {
+        display: inline-block;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        font-size: 90%;
+    }
+}
+
+
+
+/* parts */
+h1 {
+   font-size: 140%;
+   margin: 0 auto;
+   width: 90%;
+}
+div.image p img {
+    width: 100%;
+}
+p.image and p.center {
+    width: 100%;
+    text-align: center;
+}
+p.image img {
+    width: 100%;
+}
+ul.badge {
+    list-style: none;
+}
+ul.badge {
+    padding-left: 0;
+}
+p.catch_copy {
+    font-weight: 800;
+}
+div.info {
+    background-color: yellow;
+    padding: 0;
+    width: 100%;
+    border: 3px solid orange;
+    border-radius: 10px;
+    margin-left: 0;
+    margin-right: 0;
+    font-size: 90%;
+    font-family: 'Yu Maru Gothic';
+}
+div.info h2 {
+    background-color: orange;
+    color: #fff;
+    width: 95%;
+    padding-left: 5%;
+    padding-right: 0;
+}
+dt {
+    font-weight: 800;
+}
+
+/* Layout */
+footer p.copyright {
+    text-align: center;
+}
+@media screen and (min-width: 901px) {
+    div.left {
+        float: left;
+        width: 48%;
+    }
+    div.right {
+        float: right;
+        width: 48%;
+    }
+    div.clear {
+        clear: both;
+    }
+}
+div.nico_player_indv {
+    margin: 0 auto;
+    width: 480px;
+    text-align: center;
+}
+
+/* section */
+section {
+    width: 100%;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+section h2 {
+    margin: 0 auto;
+    margin-bottom: 20px;
+    width: 90%;
+    font-size: 120%;
+}
+section div {
+    width: 90%;
+    margin: 0 auto;
+}
+section div p {
+    width: 100%;
+}
+section#new_release {
+    margin-top: 5px;
+    color: #fff;
+    background-color: #111;
+}
+section#event {
+    color: #000;
+    background-color: orange;
+}
+section#album {
+    color: #000;
+    background-color: #fff;
+}
+
+/* album_list */
+@media screen and (min-width: 901px) {
+    section#original_album div, section#compiration_album div {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 90%;
+        margin: 0 auto;
+        padding: 0;
+    }
+    section#original_album div figure, section#compiration_album div figure {
+        width: 30%;
+        padding: 10px;
+        margin: 0;
+    }
+    section#original_album div.clear, section#compiration_album div.clear {
+        display: none;
+    }
+}
+section#original_album div figure img, section#compiration_album div figure img {
+    width: 100%;
+}
+section#original_album span.album_title, section#compiration_album span.album_title {
+    font-size: 120%;
+    font-weight: 800;
+}
+section#original_album span.summary, section#compiration_album spam.summary {
+    font-size: 100%;
+}
+figcaption a:link, figcaption a:visited, figcaption a:hover {
+    color: #000;
+    text-decoration: none;
+}
+
+
+/* parallel world songlist */
+ul.parallel_world_song_list span.song_title {
+    font-weight: 800;
+}
+ul.parallel_world_song_list span.staff {
+    font-size: 90%;
+}

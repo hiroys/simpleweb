@@ -1,0 +1,126 @@
+<!-- common -->
+<link rel="stylesheet" href="/static/css/slicknav.css">
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.js"></script>
+<script type="text/javascript" src="/static/js/jquery.slicknav.min.js"></script>
+<script type="text/javascript">
+    jQuery(function($) {
+        $('#gnav').slicknav();
+    });
+</script>
+<link rel="stylesheet" href="/static/css/std.css">
+
+<!--  Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-58432443-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-58432443-1');
+</script>
+
+{% if page_info.category == 'album' %}
+<!-- Music Group -->
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "MusicGroup",
+  "url": "{{ musicgroup.url }}",
+  "image": [
+    {% for image_url in musicgroup.image %}
+    "{{ image_url }}"{% if not loop.last %} ,{% endif %}
+    {% endfor %}
+   ],
+  "name": "{{ musicgroup.name }}",
+  "sameAs": "{{ musicgroup.same_as }}",
+  "description": "{{ musicgroup.description }}",
+  "potentialAction": {
+    "@type": "ListenAction",
+    "target": [
+      {% for url_template in musicgroup.url_template%}
+      {
+        "@type": "EntryPoint",
+        "urlTemplate": "{{ url_template }}",
+        "actionPlatform": [
+          "http://schema.org/DesktopWebPlatform",
+          "http://schema.org/IOSPlatform",
+          "http://schema.org/AndroidPlatform"
+        ],
+        "InLanguage": "{{ musicgroup.in_language }}"
+      }{% if not loop.last %},{% endif %}
+      {% endfor %}
+    ],
+    "expectsAcceptanceOf": {
+      "@type": "Offer",
+      "eligibleRegion": [
+        {
+          "@type": "Country",
+          "name": "{{ musicgroup.country }}"
+        }
+      ]
+    }
+  }
+}
+</script>
+
+<!-- album info -->
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "MusicAlbum",
+  "url": "{{ albuminfo.url }}",
+  "genre": "{{ albuminfo.genre }}",
+  "image": [
+    {% for image_url in albuminfo.image %}
+    "{{ image_url }}"{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ],
+  "name": "{{ albuminfo.name }}",
+  "numtracks": "{{ albuminfo.numtracks }}",
+  "description": "{{ albuminfo.description }}",
+  "byArtist": "{{ albuminfo.by_artist }}",
+  "datePublished": "{{ albuminfo.date_published }}",
+  "producer": "{{ albuminfo.producer }}",
+  "track": [
+    {% for track in trackinfo %}
+    {
+      "@type": "musicRecording",
+      "position": "{{ track.position }}",
+      "name": "{{ track.name }}",
+      "url": "{{ track.url }}",
+      "duration": "{{ track.duration }}",
+      "creator": "{{ track.creator }}",
+      "copyrightHolder": "{{ track.copyright_holder }}",
+      "datePublished": "{{ track.date_published }}"
+    }{% if not loop.last %},{% endif %}
+  ],
+  "potentialAction": {
+    "@type": "ListenAction",
+    "target": [
+    {% for url_template2 in albuminfo %}
+      {
+        "@type": "EntryPoint",
+        "urlTemplate": "{{ url_template2 }}",
+        "actionPlatform": [
+          "http://schema.org/DesktopWebPlatform",
+          "http://schema.org/IOSPlatform",
+          "http://schema.org/AndroidPlatform"
+        ],
+        "InLanguage": "{{ albuminfo.in_language }}"
+      }{% if not loop.last %},{% endif %}
+    {% endfor%}
+    ],
+    "expectsAcceptanceOf": {
+      "@type": "Offer",
+      "eligibleRegion": [
+        {
+          "@type": "Country",
+          "name": "{{ albuminfo.country }}"
+        }
+      ]
+    }
+  }
+}
+</script>
+
+{% endif %} <!-- //End category -->

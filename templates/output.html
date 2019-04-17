@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+        <title>{{ url_info.title }} - {{ site_info.site_name }}</title>
+        {% include 'head.html' %}
+    </head>
+    <body>
+        <header>
+            {% include 'header.html' %}
+        </header>
+        
+        {% if not url_info.category == '_toppage' %}
+        <div id="page_navi">
+            <ul>
+            {% for navi_item in doc_info %}
+                {% if not navi_item.doc_title == '' %}
+                <li><a href="#{{ navi_item.anchor }}">{{ navi_item.doc_title }}</a></li>
+                {% endif %}
+            {% endfor %}
+            </ul> 
+        </div>
+        {% endif %}
+        
+        {% if not url_info.title == '' %}
+        <h1>{{ url_info.title }}</h1>
+        {% endif %}
+
+        <div id="contents">
+        {% for content_item in doc_info %}
+            {% if not content_item.doc_title == '' %}
+            <section id="{{ content_item.anchor }}">
+                <h2>{{ content_item.doc_title }}</h2>
+                <div>{{ content_item.doc_text | safe }}<div class="clear"></div></div>
+            </section>
+            {% else %}
+            <section class="no_title">
+                <div>{{ content_item.doc_text | safe }}<div class="clear"></div></div>
+            </section>
+            {% endif %}
+        {% endfor %}
+        </div>
+        
+        <footer>
+            {% include 'footer.html' %}
+        </footer>
+    </body>
+</html>
