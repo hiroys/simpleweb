@@ -37,7 +37,12 @@ def get_urldata(category, custom_url):
     site_info = db_connect.get_site_t(url_info['site_id'])
     doc_info = db_connect.get_doc_t(url_info['url_id'])
     cate_info = db_connect.get_category_l(url_info['site_id'])
-    musicgroup, albuminfo, trackinfo = db_connect.get_head_l(custom_url)
+    if category == 'album':
+        musicgroup, albuminfo, trackinfo = db_connect.get_head_l(custom_url)
+    else:
+        musicgroup = {}
+        albuminfo = {}
+        trackinfo = []
 
     page_info = {
         'category': category,
