@@ -20,7 +20,7 @@ def root():
     
 @app.route('/<category>', methods=['GET'])
 def category(category):
-    if category = '':
+    if category == '':
         category = '_toppage'
     html = get_urldata(category, '_root')
     return html
