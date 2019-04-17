@@ -28,7 +28,7 @@
   "url": "{{ musicgroup.url }}",
   "image": [
     {% for image_url in musicgroup.image %}
-    "{{ image_url }}"{% if not loop.last %} ,{% endif %}
+    "{{ image_url }}"{% if not loop.last %}, {% endif %}
     {% endfor %}
    ],
   "name": "{{ musicgroup.name }}",
@@ -47,7 +47,7 @@
           "http://schema.org/AndroidPlatform"
         ],
         "InLanguage": "{{ musicgroup.in_language }}"
-      }{% if not loop.last %},{% endif %}
+      }{% if not loop.last %}, {% endif %}
       {% endfor %}
     ],
     "expectsAcceptanceOf": {
@@ -93,6 +93,7 @@
       "copyrightHolder": "{{ track.copyright_holder }}",
       "datePublished": "{{ track.date_published }}"
     }{% if not loop.last %},{% endif %}
+    {% endfor %}
   ],
   "potentialAction": {
     "@type": "ListenAction",
@@ -108,7 +109,7 @@
         ],
         "InLanguage": "{{ albuminfo.in_language }}"
       }{% if not loop.last %},{% endif %}
-    {% endfor%}
+    {% endfor %}
     ],
     "expectsAcceptanceOf": {
       "@type": "Offer",
