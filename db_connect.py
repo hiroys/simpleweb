@@ -108,7 +108,7 @@ def get_category_l(site_id):
 
 def get_head_l(custom_url):
 
-    sql_mu = 'SELECT musican_id, url, image, name, same_as, description, url_template, in_language, country FROM simpleweb_ext_musicgroup_t;'
+    sql_mu = 'SELECT musician_id, url, image, name, same_as, description, url_template, in_language, country FROM simpleweb_ext_musicgroup_t;'
     conn = get_conn()
     with conn.cursor() as cur_mu:
         cur_mu.execute(sql_mu)
