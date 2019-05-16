@@ -38,7 +38,12 @@ def get_urldata(category, custom_url):
     doc_info = db_connect.get_doc_t(url_info['url_id'])
     cate_info = db_connect.get_category_l(url_info['site_id'])
     if category == 'album' and custom_url != '_root':
-        musicgroup, albuminfo, trackinfo = db_connect.get_head_l(custom_url)
+        try:
+            musicgroup, albuminfo, trackinfo = db_connect.get_head_l(custom_url)
+        except:
+            musicgroup = {}
+            albuminfo = {}
+            trackinfo = {}
     else:
         musicgroup = {}
         albuminfo = {}
